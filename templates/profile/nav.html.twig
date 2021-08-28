@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link nav-profile {% if 'mijn-profiel-index' in app.request.get('_route') %}active{% endif %}" href="{{ path('mijn-profiel-index') }}">Profiel</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-profile {% if 'mijn-profiel-aanbieden' in app.request.get('_route') %}active{% endif %}" href="{{ path('mijn-profiel-aanbieden') }}">Hulp Aanbieden</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-profile {% if 'mijn-profiel-vragen' in app.request.get('_route') %}active{% endif %}" href="{{ path('mijn-profiel-vragen') }}">Hulp Vragen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-profile {% if 'mijn-profiel-gebruiker' in app.request.get('_route') %}active{% endif %}" href="{{ path('mijn-profiel-gebruiker') }}">Gebruiker</a>
+    </li>
+</ul>

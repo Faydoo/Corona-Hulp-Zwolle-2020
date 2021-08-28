@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aanmelden bij coronahulpzwolle.nl{% endblock %}
+
+{% block body %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Aanmelden</h3>
+                                    <div class="mb-4">
+                                        Vul de volgende gegevens in om u aan te melden:
+                                    </div>
+                                    {{ form_start(signUpForm, {'attr': { 'class': 'contactForm' } }) }}
+                                    {{ form_row(signUpForm._token) }}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="sign_up_displayName">Naam</label>
+                                                    {{ form_row(signUpForm.displayName) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="sign_up_mailaddress">E-mailadres</label>
+                                                    {{ form_row(signUpForm.email) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="sign_up_password">Wachtwoord</label>
+                                                    {{ form_row(signUpForm.plainPassword.first) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="sign_up_passwordAgain">Wachtwoord (nogmaals)</label>
+                                                    {{ form_row(signUpForm.plainPassword.second) }}
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    {{ form_row(signUpForm.signup) }}
+                                                    <div class="submitting"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{ form_end(signUpForm) }}
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-flex align-items-stretch">
+                                <div class="info-wrap w-100 p-5 img" style="background-image: url({{ asset('images/login-zwolle.jpg') }});">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

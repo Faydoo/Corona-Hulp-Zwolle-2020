@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Corona Hulp Zwolle - Voor Zwollenaren, door Zwollenaren</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<!-- nav -->
+<div class="container pt-5 pb-4">
+    <div class="row justify-content-between">
+        <div class="col-12 order-md-last">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <a class="navbar-brand" href="{{ path('home') }}">
+                        <img class="logo-zwolle-sm" src="{{ asset('images/logo-zwolle.png') }}" alt="logo">
+                        Corona Hulp<span><img class="logo-zwolle" src="{{ asset('images/logo-zwolle.png') }}" alt="logo"> Zwolle</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item active"><a href="{{ path('home') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ path('aanmelden') }}" class="nav-link">Aanmelden</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Hulp gevraagd</a></li>
+                <li class="nav-item"><a href="#"  class="nav-link">Hulp aangeboden</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item"><a href="{{ path('mijn-profiel-index') }}" class="nav-link">Mijn Profiel</a></li>
+                    <li class="nav-item"><a href="{{ path('uitloggen') }}" class="nav-link">Uitloggen</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{ path('inloggen') }}" class="nav-link">Inloggen</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+{% block body %}{% endblock %}
+
+<!-- CTA -->
+<section class="ftco-section ftco-no-pt ftco-no-pb bg-primary">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 py-4">
+                <div class="row">
+                    <div class="col-md-6 ftco-animate d-flex align-items-center">
+                        <h2 class="mb-0" style="color:white; font-size: 24px;">Nieuws, hulpvragen of aanbod onvangen?</h2>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <form action="#" method="post" class="subscribe-form">
+                            <div class="form-group d-flex">
+                                <input type="email" class="form-control" placeholder="Voer emailadres in">
+                                <input type="submit" value="inschrijven" class="submit px-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end CTA -->
+
+<!-- footer -->
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="logo"><a href="#">Corna Hulp <span>Zwolle</span></a></h2>
+                    <p>Ouderen en kwetsbare mensen het zwaar tijdens deze Coronacrisis. Wij verzamelen alle vraag en aanbod in en om Zwolle op op onze website. Hulp vragen en aanbieden is gratis voor iedereen. Zo maken we de kans het grootst dat hulp gevonden wordt. Want dat is nodig! Jij doet toch ook mee?</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Menu</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ path('home') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
+                        <li><a href="{{ path('aanmelden') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Aanmelden</a></li>
+                        <li><a href="{{ path('gevraagd') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Hulp gevraagd</a></li>
+                        <li><a href="{{ path('aangeboden') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Hulp aangeboden</a></li>
+                        <li><a href="{{ path('contact') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Contact</a></li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li><a href="{{ path('uitloggen') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Uitloggen</a></li>
+                        {% else %}
+                            <li><a href="{{ path('inloggen') }}" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Inloggen</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Contact informatie</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">Zwolle</span></li>
+{#                            <li><a href="#"><span class="icon icon-phone"></span><span class="text"></span></a></li>#}
+                            <li><a href="mailto:vragen@coronahulpzwolle.nl"><span class="icon icon-envelope"></span><span class="text">vragen@coronahulpzwolle.nl</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/scrollax.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+
+</body>
+</html>
+
+

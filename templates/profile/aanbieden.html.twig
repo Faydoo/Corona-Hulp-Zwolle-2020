@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hulp Aanbieden{% endblock %}
+
+{% block body %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row no-gutters justify-content-center">
+                <div class="col-md-8">
+                    {% include 'profile/nav.html.twig' %}
+                    <div class="wrapper">
+                        <div class="profile-wrap w-100 p-md-5 p-4">
+                            <h3 class="mb-4">Hulp Aanbieden</h3>
+                            {{ form_start(offerForm, {'attr': { 'class': 'contactForm' } }) }}
+                            {{ form_row(offerForm._token) }}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="label" for="form_helpOfferedTitle">Korte beschrijving</label>
+                                        {{ form_row(offerForm.helpOfferedTitle) }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="label" for="form_helpOfferedText">Beschrijving</label>
+                                        {{ form_row(offerForm.helpOfferedText) }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="label" for="form_helpOfferedText">In welke wijk woont u?</label>
+                                        {{ form_row(offerForm.location) }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="label" for="form_helpOfferedText">In welke categori&euml;n valt uw hulp?</label>
+                                        {{ form_row(offerForm.category) }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check form-check-inline">
+                                        <div class="label mr-4">Tonen op coronahulpzwolle.nl?</div>
+                                        <label class="switch" for="form_visible">
+                                            <input type="checkbox" id="form_visible" name="form[visible]" class="form-check-input" {{ offerForm.vars.value.visible ? 'checked' : '' }}>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ form_row(offerForm.save) }}
+                                        <div class="submitting"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ form_end(offerForm, {'render_rest': false}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

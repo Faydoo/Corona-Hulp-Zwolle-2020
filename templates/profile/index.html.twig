@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profiel bewerken{% endblock %}
+
+{% block body %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row no-gutters justify-content-center">
+                <div class="col-md-8">
+                    {% include 'profile/nav.html.twig' %}
+                    <div class="wrapper">
+                        <div class="profile-wrap w-100 p-md-5 p-4">
+                            <h3 class="mb-4">Profiel</h3>
+                            {{ form_start(profileForm, {'attr': { 'class': 'contactForm' } }) }}
+                            {{ form_row(profileForm._token) }}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_displayName">Naam op uw profiel</label>
+                                        {{ form_row(profileForm.displayName) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_firstName">Voornaam</label>
+                                        {{ form_row(profileForm.firstName) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_lastName">Acternaam</label>
+                                        {{ form_row(profileForm.lastName) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_street">Straatnaam</label>
+                                        {{ form_row(profileForm.street) }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_number">Huisnummer</label>
+                                        {{ form_row(profileForm.number) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_postalCode">Postcode</label>
+                                        {{ form_row(profileForm.postalCode) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_city">Woonplaats</label>
+                                        {{ form_row(profileForm.city) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="profile_telnum">Telefoonnummer</label>
+                                        {{ form_row(profileForm.telnum) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ form_row(profileForm.save) }}
+                                        <div class="submitting"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ form_end(profileForm, {'render_rest': false}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inloggen op coronahulpzwolle.nl{% endblock %}
+
+{% block body %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Inloggen</h3>
+                                    <div id="form-message-warning" ></div>
+                                    <div id="form-message-success" class="mb-4">
+                                        Voor uw e-mailadres en wachtwoord in:
+                                    </div>
+                                    {% include 'flashmessages.html.twig' %}
+                                    {% if error %}
+                                        <div class="alert alert-danger mb-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                    {% endif %}
+
+                                    {% if app.user %}
+                                        <div class="alert alert-warning mb-4">
+                                            Je bent ingelogd als {{ app.user.username }}, <a href="{{ path('uitloggen') }}">Uitloggen?</a>
+                                        </div>
+                                    {% endif %}
+                                    <form method="post" class="contactForm">
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label class="label" for="inputEmail">E-mailadres</label>
+                                                    <input type="email" value="{{ last_username }}" class="form-control" name="email" id="inputEmail" placeholder="E-mailadres" required autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label class="label" for="inputPassword">Wachtwoord</label>
+                                                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Inloggen" class="btn btn-success">
+                                                    <div class="submitting"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-flex align-items-stretch">
+                                <div class="info-wrap w-100 p-5 img" style="background-image: url({{ asset('images/login-zwolle.jpg') }});">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
